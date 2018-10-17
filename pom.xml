@@ -240,7 +240,7 @@
 					</additionalBuildcommands>
 					<downloadSources>true</downloadSources>
 					<downloadJavadocs>true</downloadJavadocs>
-				</configuration>
+				</configuration> 
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
