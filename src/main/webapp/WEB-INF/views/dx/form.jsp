@@ -17,7 +17,7 @@
 			{type:'button',name:'loginbtn',value:'LOGIN'}
 			]	
 		}
-	]
+	];
 	
 	function doInit() {
 		var forms = [
@@ -33,8 +33,10 @@
 				dxWin = new dhtmlXWindows();
 				dxWin.createWindow('w1',0,10,220,230);
 				dxWin.window('w1').centerOnScreen();
+				
 				var loginForm = new dhtmlXForm('loginForm',loginFormData);
 				dxWin.window('w1').attachObject('loginForm');
+				
 				loginForm.attachEvent('onButtonClick',function(name){
 					if(name=='loginbtn') {
 						if(loginForm.validate()){
