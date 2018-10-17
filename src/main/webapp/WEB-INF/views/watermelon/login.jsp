@@ -10,12 +10,18 @@
 <body>
 <script>
 var dxForm,dxWin; 
-
 var signupFormData = [
-	{type:'input',name:'id',label:'ID',validate:'ValidAplhaNumeric',required:true},
-		  {type:'password',name:'pwd',label:'PWD',validate:'ValidAplhaNumeric',required:true},
-		  {type:'button',name:'insertbtn',value:'Sign Up'},
-		  {type:'button',name:'cancel',value:'Cancel'}
+		{type:'input',name:'id',label:'ID',validate:'ValidAplhaNumeric',required:true},
+		{type:'password',name:'pwd',label:'PWD',validate:'ValidAplhaNumeric',required:true},
+		{type:'input',name:'name',label:'이름',validate:'ValidAplhaNumeric',required:true},
+		{type:'input',name:'email',label:'이메일',validate:'ValidEmail',required:true},
+		{type:'input',name:'birth',label:'생년월일',validate:'ValidAplhaNumeric',required:true},
+		{type:'input',name:'address',label:'주소',validate:'ValidAplhaNumeric',required:true},
+		{type:'input',name:'hobby',label:'취미',validate:'ValidAplhaNumeric',required:true},
+		{type:'input',name:'desc',label:'자기소개',validate:'ValidAplhaNumeric',required:true},
+		{type:'input',name:'tel',label:'전화번호',validate:'ValidAplhaNumeric',required:true},
+		{type:'button',name:'insertbtn',value:'Sign Up'},
+		{type:'button',name:'cancel',value:'Cancel'}
 	];
 	
 function doInit(){
@@ -35,19 +41,48 @@ function doInit(){
 		
 			if(!dxWin){
 				dxWin = new dhtmlXWindows();
-				dxWin.createWindow('w1',0,10,220,230);
+				dxWin.createWindow('w1',0,10,700,700);
 				dxWin.window('w1').setText('회원가입');
 				dxWin.window('w1').centerOnScreen();
 				//항목넣기
 				var signupForms = new dhtmlXForm('signupForm',signupFormData);
 				console.log(signupForms)
 				dxWin.window('w1').attachObject('signupForm');//반드시 divd영역의 아이디이다. 만들어놓은 var 값이 아님. 
+				signupForms.attachEvent('onButtonClick',function(name){
+					if(signupForms.validate()){
+					var id=signupForms.getItemValue('id');
+					var pwd=signupForms.getItemValue('pwd');
+					var name=signupForms.getItemValue('name');
+					var email=signupForms.getItemValue('email');
+					var birth=signupForms.getItemValue('birth');
+					var address=signupForms.getItemValue('address');
+					var hobby=signupForms.getItemValue('hobby');
+					var desc=signupForms.getItemValue('desc');
+					var tel=signupForms.getItemValue('tel');
+					var conf = {
+							url:'/userpr',
+							method:'POST',
+							param : JSON.stringify({id:id,pwd:pwd,name:name,email:email,birth:birth,address:address,hobby:hobby,desc:desc,tel:tel}),
+							success : function(res){
+								res = JSON.parse(res);
+								alert(res.msg);
+								alert('되자제발');
+								location.href='/uri/watermelon/login';
+							}
+					}
+					au.send(conf);
+					
+					}
+				})
 				
 			}else{
 				alert('안나온다');//xWindow를 닫으면 다시 눌렀을 때 실행되야 하므로 넣어줘야함. 
 				
 			}
-			signinForm.attachEvent('onButtonClick',function(name){
+		}
+	});
+		
+	signinForm.attachEvent('onButtonClick',function(name){
 				if(name=='signinbtn') {
 					if(signinForm.validate()){
 					var id = signinForm.getItemValue('id');
@@ -64,13 +99,10 @@ function doInit(){
 					au.send(conf);
 				}
 				}
-			})
-		}
-	});
-
-	}
+			});
+	};
+	
 	window.addEventListener('load',doInit);
-
 </script>
 <div id="test"></div>
 <div class="container">
@@ -98,17 +130,6 @@ function doInit(){
  
   <div id="signupForm" style="width:240px;height:250px;"></div>
  <script>
-
-
-
-
-
-
-
-
-
-
-
 </script>
 </body>
 </html>

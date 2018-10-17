@@ -7,15 +7,15 @@
 	<title>스프링테스트</title>
 </head>
 	<script>
-		function doInti() {
+		function doInit() {
 			dxGrid = new dhtmlXGridObject('dxGrid');
 			dxGrid.setImagePath('${gridPath}');
-			dxGrid.setHeader('번호,이름,아이디');
-			dxGrid.setColumnIds('num,name,id');
-			dxGrid.setColTypes('ro,ed,ed');
+			dxGrid.setHeader('번호,이름,아이디,수정');
+			dxGrid.setColumnIds('num,name,id,modbtn');
+			dxGrid.setColTypes('ro,ed,ed,img');
 			dxGrid.init();
 			var data = [
-				{num:1,name:'홍길동',id:'hong'}
+				{num:1,name:'홍길동',id:'hong',modbtn:'${imgsPath}/dhxacc_skyblue/dhxacc_btns.gif'}
 			]
 			dxGrid.parse(data,'js');
 		}
