@@ -11,4 +11,5 @@ public interface UserPrService {
 	public int insertUserPr(UserPr ui);
 	public int updateUserPr(UserPr ui);
 	public int deleteUserPr(int uinum);
+	public String checkLogin(UserPr ui);
 }

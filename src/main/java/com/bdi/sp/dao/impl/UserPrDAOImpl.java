@@ -28,8 +28,15 @@ public class UserPrDAOImpl implements UserPrDAO {
 
 	@Override
 	public int insertUserPr(UserPr ui) {
+		UserPr checking= new UserPr();
+		checking= ss.selectOne("com.bdi.sp.vo.UserPrMapper.checkwndqhr",ui);
+		if(checking==null||(ui.getUitel()!=null&&ui.getUiaddress()!=null&&ui.getUibirth()!=null&&ui.getUidesc()!=null&&ui.getUiemail()!=null&&ui.getUihobby()!=null&&ui.getUiname()!=null&&ui.getUipwd()!=null)) {
 		return ss.insert("com.bdi.sp.vo.UserPrMapper.insertUserPr", ui);
+		}else {
+			return 0;
+		}
 	}
+	
 
 	@Override
 	public int updateUserPr(UserPr ui) {
@@ -38,6 +45,12 @@ public class UserPrDAOImpl implements UserPrDAO {
 	@Override
 	public int deleteUserPr(int uinum) { 
 		return ss.delete("com.bdi.sp.vo.UserPrMapper.deleteUserPr", uinum);
+	}
+
+	@Override
+	public UserPr checkUser(UserPr ui) {
+		
+		return ss.selectOne("com.bdi.sp.vo.UserPrMapper.checkUserPr",ui);
 	}
 
 }
