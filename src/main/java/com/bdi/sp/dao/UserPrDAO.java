@@ -11,4 +11,5 @@ public interface UserPrDAO {
 	public int insertUserPr(UserPr ui); 
 	public int updateUserPr(UserPr ui);
 	public int deleteUserPr(int uinum);
+	public UserPr checkUser(UserPr ui);
 }

@@ -34,6 +34,10 @@ public class UserPrController {
 	public @ResponseBody int insertUserPr(@RequestBody UserPr ui) {
 		return uis.insertUserPr(ui);
 	}
+	@RequestMapping(value="/userprs", method=RequestMethod.POST)
+	public @ResponseBody int dupcheck(@RequestBody UserPr ui) {
+		return uis.insertUserPr(ui);
+	}
 	
 	@RequestMapping(value="/userpr/{uinum}", method=RequestMethod.PUT)
 	public @ResponseBody int updateUserPr(@RequestBody UserPr ui, @PathVariable Integer uinum) {

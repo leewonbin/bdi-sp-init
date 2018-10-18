@@ -12,6 +12,7 @@
 var dxForm,dxWin; 
 var signupFormData = [
 		{type:'input',name:'id',label:'ID',validate:'ValidAplhaNumeric',required:true},
+		{type:'button',name:'btn',value:'중복확인하자 제발'},
 		{type:'password',name:'pwd',label:'PWD',validate:'ValidAplhaNumeric',required:true},
 		{type:'input',name:'name',label:'이름',validate:'ValidHangle',required:true},
 		{type:'input',name:'email',label:'이메일',validate:'ValidEmail',required:true},
@@ -35,6 +36,7 @@ function doInit(){
 		}
 	];
 	
+
 	var signinForm= new dhtmlXForm('blockLog', signinFormData);
 	signinForm.attachEvent('onButtonClick',function(name){
 		if(name=='signupbtn'){
@@ -46,9 +48,14 @@ function doInit(){
 				dxWin.window('w1').centerOnScreen();
 				//항목넣기
 				var signupForms = new dhtmlXForm('signupForm',signupFormData);
-				console.log(signupForms)
+				
+				
 				dxWin.window('w1').attachObject('signupForm');//반드시 divd영역의 아이디이다. 만들어놓은 var 값이 아님. 
-				signupForms.attachEvent('onButtonClick',function(name){
+				var dup = document.getElementsByClassName('dhxform_btn');
+				console.log(dup);
+				dup[3].addEventListener('click',function(){
+					console.log('제발되라');
+					
 					if(signupForms.validate()){
 					var id=signupForms.getItemValue('id');
 					var pwd=signupForms.getItemValue('pwd');
@@ -59,7 +66,11 @@ function doInit(){
 					var hobby=signupForms.getItemValue('hobby');
 					var desc=signupForms.getItemValue('desc');
 					var tel=signupForms.getItemValue('tel');
-					console.log(email);
+					
+				
+				
+					
+			
 					var conf = {
 							url:'/userpr',
 							method:'POST',
@@ -75,6 +86,26 @@ function doInit(){
 					
 					}
 				})
+				dup[2].addEventListener('click',function(){
+					console.log(signupForms);
+					if(signupForms.validate()){
+						var id=signupForms.getItemValue('id');
+						var conf = {
+								url:'/userprs',
+								method:'POST',
+								param : JSON.stringify({uiid:id}),
+								success : function(res){
+									
+									alert(res);
+									alert('뭘까');
+									location.href='/uri/watermelon/login';
+								}
+						}
+						au.send(conf);
+					}
+						
+					});
+				
 				
 			}else{
 				alert('안나온다');//xWindow를 닫으면 다시 눌렀을 때 실행되야 하므로 넣어줘야함. 
@@ -88,13 +119,17 @@ function doInit(){
 					if(signinForm.validate()){
 					var id = signinForm.getItemValue('id');
 					var pwd = signinForm.getItemValue('pwd');
+					alert('hi');
 					var conf = {
 							url:'/login',
-							method:'GET',
-							param : JSON.stringify({id:id,pwd:pwd}),
+
+
+							method:'POST',
+							param : JSON.stringify({uiid:id,uipwd:pwd}),
+
 							success : function(res){
-								res = JSON.parse(res);
-								alert(res.msg);
+								alert(res);
+								location.href="/uri/watermelon/list"
 							}
 					}
 					au.send(conf);

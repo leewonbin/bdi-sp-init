@@ -22,6 +22,9 @@
 	<select id="selectUserPr" resultType="com.bdi.sp.vo.UserPr">
 		select * from user_pr where uinum=#{uinum}
 	</select>
+	<select id="checkwndqhr" resultType="com.bdi.sp.vo.UserPr">
+		select * from user_pr where uiid=#{uiid}
+	</select>
 	
 	<insert id="insertUserPr">
 		insert into user_pr(uiname,uiid,uipwd,uiemail,uibirth,uiaddress,uihobby,uidesc,uitel)
@@ -48,4 +51,10 @@
 		delete from user_pr
 		where uinum=#{uinum}
 	</delete>
+	<select id="checkUserPr" resultType="com.bdi.sp.vo.UserPr">
+	
+		select * from user_pr where uiid=#{uiid} and uipwd=#{uipwd}
+	</select>
+	
+	
 </mapper>
