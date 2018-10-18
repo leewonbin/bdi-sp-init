@@ -27,7 +27,8 @@ public class UserPrServiceImpl implements UserPrService {
 
 	@Override
 	public int insertUserPr(UserPr ui) {
-		return uidao.insertUserPr(ui);
+		
+		return uidao.insertUserPr(ui);//return 값이 숫자: 1이면 성공 0이면 실패.
 	}
 
 	@Override
@@ -39,4 +40,15 @@ public class UserPrServiceImpl implements UserPrService {
 	public int deleteUserPr(int uinum) {
 		return uidao.deleteUserPr(uinum); 
 	}
+
+	@Override
+	public String checkLogin(UserPr ui) {
+		if(uidao.checkUser(ui)!=null) {
+		System.out.println(uidao.checkUser(ui));
+		return "success";
+		}else {
+			return "fail";
+		}
+	}
+	
 }

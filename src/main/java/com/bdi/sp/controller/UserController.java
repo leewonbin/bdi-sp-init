@@ -1,50 +1,21 @@
 package com.bdi.sp.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.bdi.sp.service.UserPrService;
+import com.bdi.sp.vo.UserPr;
+
 @Controller
 public class UserController {
-	
+	@Autowired
+	private UserPrService up;
 	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public @ResponseBody Map<String,String> login(@RequestBody Map<String,String> user){
-		Map<String,String> rMap = new HashMap<String,String>();
-		rMap.put("login", "fail");
-		rMap.put("msg", "아이디 및 비민번호를 확인하세요");
-		//값이 1이면 성공 아니면 fail 
-		if(user.get("id")==null) {
-			return rMap;
-		}
-		if(user.get("id").equals("test")) {
-			if(user.get("pwd").equals("test")) {
-				rMap.put("login", "success");
-				rMap.put("msg", "로그인되었습니다");
-				
-			}
-		}
-		return rMap;	
-	}
-	@RequestMapping(value="/userpr",method=RequestMethod.POST)
-	public @ResponseBody Map<String,String> singup(@RequestBody Map<String,String> user){
-		Map<String,String> rMap = new HashMap<String,String>();
-		rMap.put("login", "fail");
-		rMap.put("msg", "아이디 및 비민번호를 확인하세요");
-		//값이 1이면 성공 아니면 fail 
-		if(user.get("id")==null) {
-			return rMap;
-		}
-		if(user.get("id").equals("test")) {
-			if(user.get("pwd").equals("test")) {
-				rMap.put("login", "success");
-				rMap.put("msg", "회원가입되었습니다");
-			}
-		}
-		return rMap;	
-	}
+	public @ResponseBody String logincheck(@RequestBody UserPr user){
+		return up.checkLogin(user);
+	}	
 }

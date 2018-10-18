@@ -16,7 +16,9 @@ public class URIController {
 	public String goPage(HttpServletRequest req) {
 		String rootPath = req.getContextPath();
 		logger.debug("name=>{}", rootPath);
+				
 		return req.getRequestURI().replace(rootPath+"/uri","");
 	}
+	
 
 }   
