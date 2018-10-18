@@ -13,13 +13,13 @@ var dxForm,dxWin;
 var signupFormData = [
 		{type:'input',name:'id',label:'ID',validate:'ValidAplhaNumeric',required:true},
 		{type:'password',name:'pwd',label:'PWD',validate:'ValidAplhaNumeric',required:true},
-		{type:'input',name:'name',label:'이름',validate:'ValidAplhaNumeric',required:true},
+		{type:'input',name:'name',label:'이름',validate:'ValidHangle',required:true},
 		{type:'input',name:'email',label:'이메일',validate:'ValidEmail',required:true},
-		{type:'input',name:'birth',label:'생년월일',validate:'ValidAplhaNumeric',required:true},
-		{type:'input',name:'address',label:'주소',validate:'ValidAplhaNumeric',required:true},
-		{type:'input',name:'hobby',label:'취미',validate:'ValidAplhaNumeric',required:true},
-		{type:'input',name:'desc',label:'자기소개',validate:'ValidAplhaNumeric',required:true},
-		{type:'input',name:'tel',label:'전화번호',validate:'ValidAplhaNumeric',required:true},
+		{type:'input',name:'birth',label:'생년월일',validate:'ValidDate',required:true},
+		{type:'input',name:'address',label:'주소',validate:'ValidHangle',required:true},
+		{type:'input',name:'hobby',label:'취미',validate:'ValidHangle',required:true},
+		{type:'input',name:'desc',label:'자기소개',validate:'ValidHangle',required:true},
+		{type:'input',name:'tel',label:'전화번호',validate:'ValidNumeric',required:true},
 		{type:'button',name:'insertbtn',value:'Sign Up'},
 		{type:'button',name:'cancel',value:'Cancel'}
 	];
@@ -90,7 +90,7 @@ function doInit(){
 					var pwd = signinForm.getItemValue('pwd');
 					var conf = {
 							url:'/login',
-							method:'POST',
+							method:'GET',
 							param : JSON.stringify({id:id,pwd:pwd}),
 							success : function(res){
 								res = JSON.parse(res);
@@ -102,7 +102,15 @@ function doInit(){
 				}
 			});
 	};
-	
+	function ValidHangle(data){
+		var nothanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+		if(data.match(nothanglePattern)){
+			 alert('한글이 아닙니다.');
+			 return false;
+		}else{
+			return true;
+		}		
+	}
 	window.addEventListener('load',doInit);
 </script>
 <div id="test"></div>
@@ -127,8 +135,6 @@ function doInit(){
    </div>  
   
 </div>
-  <div class="pagefooter">안녕</div>
- 
   <div id="signupForm" style="width:240px;height:250px;"></div>
  <script>
 </script>
