@@ -7,7 +7,7 @@
 	<title>스프링테스트</title>
 </head>
 	<script>
-		function doInti() {
+		function doInit() {
 			dxGrid = new dhtmlXGridObject('dxGrid');
 			dxGrid.setImagePath('${gridPath}');
 			dxGrid.setHeader('번호,이름,아이디');

@@ -36,7 +36,7 @@
 				
 				var loginForm = new dhtmlXForm('loginForm',loginFormData);
 				dxWin.window('w1').attachObject('loginForm');
-				
+				//40~56 서버에서 데이터 가져오기
 				loginForm.attachEvent('onButtonClick',function(name){
 					if(name=='loginbtn') {
 						if(loginForm.validate()){
