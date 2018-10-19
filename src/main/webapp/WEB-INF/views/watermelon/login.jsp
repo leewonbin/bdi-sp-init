@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>퍼플시티</title>
-	<link rel="stylesheet" type="text/css" href="${resPath}/css/login.css">
+<meta charset="utf-8">
+<title>퍼플시티</title>
+<link rel="stylesheet" type="text/css" href="${resPath}/css/login.css">
 </head>
 <body>
-<script>
+	<script>
 var dxForm,dxWin; 
 var signupFormData = [
 		{type:'input',name:'id',label:'ID',validate:'ValidAplhaNumeric',required:true},
@@ -51,6 +51,7 @@ function doInit(){
 				
 				//항목넣기
 				var signupForms = new dhtmlXForm('signupForm',signupFormData);
+
 			
 				signupForms.disableItem("insertbtn");
 				
@@ -80,6 +81,7 @@ function doInit(){
 								alert('빈칸입니다');
 								signupForms.disableItem("insertbtn");
 								
+
 							}
 					}else if(name=="insertbtn"){
 					
@@ -101,7 +103,6 @@ function doInit(){
 								success : function(res){
 									res = JSON.parse(res);
 									alert(res.msg);
-									
 									location.href='/uri/watermelon/login';
 								}
 						}
@@ -117,10 +118,8 @@ function doInit(){
 							
 						};
 					}
+
 				})
-				
-				
-				
 			}else{
 				dxWin.window('w1').show();
 			
@@ -154,6 +153,7 @@ function doInit(){
 				}
 			});
 	};
+
 	function ValidHangle(data){
 		var nothanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
 		if(data.match(nothanglePattern)){
@@ -163,34 +163,37 @@ function doInit(){
 			return true;
 		}		
 	}
-	
+
 
 	window.addEventListener('load',doInit);
 </script>
-<div id="test"></div>
-<div class="container">
-  <div id="section1">
-  <img src="https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2017/10/Castelvetro.jpg"/>
-    <div class="atag">
-    <a href="www.google.com" target="_blank"> Wine Sofa</a>
-    </div>
-  </div>
-  
-  <div id="section2">
-  
-      <div id="blockLog">
-        
-        <!-- <div class="atag">
+
+	<div id="test"></div>
+	<div class="container">
+		<div id="section1">
+			<img
+				src="https://253qv1sx4ey389p9wtpp9sj0-wpengine.netdna-ssl.com/wp-content/uploads/2017/10/Castelvetro.jpg" />
+			<div class="atag">
+				<a href="www.google.com" target="_blank"> Wine Sofa</a>
+			</div>
+		</div>
+
+		<div id="section2">
+
+			<div id="blockLog">
+
+				<!-- <div class="atag">
          <a href="http://www.google.com" target="_blank">Forgot Password?</a>
         </div> -->
-      </div>
-    
-      
-   </div>  
-  
-</div>
-  <div id="signupForm" style="width:240px;height:250px;"></div>
- <script>
+			</div>
+
+
+		</div>
+
+	</div>
+	<div id="signupForm" style="width: 240px; height: 250px;"></div>
+	<script>
+
 </script>
 </body>
 </html>

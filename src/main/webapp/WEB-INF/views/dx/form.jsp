@@ -49,9 +49,12 @@
 								success : function(res){
 									res = JSON.parse(res);
 									alert(res.msg);
+									
 								}
 						}
 						au.send(conf);
+						alert('되자제발');
+						location.href='/uri/watermelon/login';
 					}
 					}
 				})

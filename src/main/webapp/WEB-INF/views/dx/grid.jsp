@@ -18,7 +18,7 @@
 			var data = [
 				{num:1,name:'홍길동1',id:'hong',modbtn:'${imgsPath}/dhxacc_skyblue/dhxacc_btns.gif',delbtn:'${imgsPath}/dhxacc_skyblue/dhxacc_btns.gif'},
 				{num:2,name:'홍길동2',id:'hongs',modbtn:'${imgsPath}/dhxacc_skyblue/dhxacc_btns.gif',delbtn:'${imgsPath}/dhxacc_skyblue/dhxacc_btns.gif'}
-			]
+				]
 			dxGrid.parse(data,'js');
 			
 		}

@@ -16,6 +16,7 @@ import com.bdi.sp.vo.UserPr;
 
 @Controller
 public class UserController {
+
 	
 /*
 	@RequestMapping(value="/login",method=RequestMethod.PUT)
@@ -36,5 +37,8 @@ public class UserController {
 		return rMap;	
 	}*/
 
+
+
+	
 
 }
