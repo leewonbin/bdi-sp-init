@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bdi.sp.vo.UserPrMapper">
+	<select id="selectUserPrList" resultType="com.bdi.sp.vo.UserPr">
+		select * from user_pr
+		<where>
+			<if test="uinum!=null"> and uinum=#{uinum}</if>
+			<if test="uiname!=null"> and uiname=#{uiname}</if>
+			<if test="uiid!=null"> and uiid=#{uiid}</if>
+			<if test="uipwd!=null"> and uipwd=#{uipwd}</if>
+			<if test="uiemail!=null"> and uiemail=#{uiemail}</if>
+			<if test="uibirth!=null"> and uibirth=#{uibirth}</if>
+			<if test="uiaddress!=null"> and uiaddress=#{uiaddress}</if>
+			<if test="uihobby!=null"> and uihobby=#{uihobby}</if>
+			<if test="uidesc!=null"> and uidesc=#{uidesc}</if>
+			<if test="uitel!=null"> and uitel=#{uitel}</if>
+		</where>
+	</select>
+	
+	<select id="selectUserPr" resultType="com.bdi.sp.vo.UserPr">
+		select * from user_pr where uinum=#{uinum}
+	</select>
+	<select id="checkwndqhr" resultType="com.bdi.sp.vo.UserPr">
+		select * from user_pr where uiid=#{uiid}
+	</select>
+	
+	<insert id="insertUserPr">
+		insert into user_pr(uiname,uiid,uipwd,uiemail,uibirth,uiaddress,uihobby,uidesc,uitel)
+		values(#{uiname},#{uiid},#{uipwd},#{uiemail},#{uibirth},#{uiaddress},#{uihobby},#{uidesc},#{uitel})
+	</insert>
+	
+	<update id="updateUserPr">
+		update user_pr
+		<set>
+			<if test="uiname!=null">uiname=#{uiname},</if>
+			<if test="uiid!=null">uiid=#{uiid},</if>
+			<if test="uipwd!=null">uipwd=#{uipwd},</if>
+			<if test="uiemail!=null">uiemail=#{uiemail},</if>
+			<if test="uibirth!=null">uibirth=#{uibirth},</if>
+			<if test="uiaddress!=null">uiaddress=#{uiaddress},</if>
+			<if test="uihobby!=null">uihobby=#{uihobby},</if>
+			<if test="uidesc!=null">uidesc=#{uidesc},</if>
+			<if test="uitel!=null">uitel=#{uitel},</if>
+		</set>
+		where uinum=#{uinum}
+	</update>
+	
+	<delete id="deleteUserPr">
+		delete from user_pr
+		where uinum=#{uinum}
+	</delete>
+	<select id="checkUserPr" resultType="com.bdi.sp.vo.UserPr">
+	
+		select * from user_pr where uiid=#{uiid} and uipwd=#{uipwd}
+	</select>
+	
+	
+</mapper>
