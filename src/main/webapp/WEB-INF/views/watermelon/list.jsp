@@ -39,12 +39,7 @@ ${ssuser.uiname}님. 환영합니다.
 				dxGrid.parse(res,'js');
 			}})
 			dxLayDiv.cells('a').attachObject('dxGrid');
-		
-			
-			
-		
-			
-	};
+			};
 
 		window.addEventListener('load',doInit);
 		setTimeout(	function(e){
@@ -89,7 +84,7 @@ ${ssuser.uiname}님. 환영합니다.
 			var cnn = document.querySelectorAll('tbody')[1].childNodes;//cnn이 row의 수
 			
 			for(var i=1;i<cnn.length;i++){
-				cnn[i].addEventListener('click',function(e){
+				cnn[i].addEventListener('dblclick',function(e){
 					//서버에서 데이터 가져오기
 				
 					var uinum= this.childNodes[0].innerHTML;
@@ -117,7 +112,6 @@ ${ssuser.uiname}님. 환영합니다.
 					function parseInput(){
 							
 							if(formData){
-								
 								document.getElementsByClassName('dhxform_base')[0].remove();
 							}
 							formData = [
@@ -141,15 +135,7 @@ ${ssuser.uiname}님. 환영합니다.
 							 html='';
 							 html+='<button onclick="findFactor3()">수정</button>';
 							 document.getElementsByClassName('dhxform_base')[0].insertAdjacentHTML('beforeend',html);
-						
-							
-							 
-							
-						
-						
-						
 					}
-					
 				});
 			}
 		
@@ -172,10 +158,9 @@ ${ssuser.uiname}님. 환영합니다.
 							param :JSON.stringify({uinum:uinum}),
 							success:function(res){
 								res=JSON.parse(res);
-								console.log(res);
-								console.log(res.msg);
-								location.href="/viewz/uri/watermelon/list";
-							}
+								
+								alert(res.msg);
+								location.href="/viewz/uri/watermelon/list";}
 						}
 						if(confirm('이 데이터를 삭제하시겠습니까?')){
 							au.send(conf);	
@@ -210,6 +195,7 @@ ${ssuser.uiname}님. 환영합니다.
 						param :JSON.stringify({uinum:keys[0],uiid:keys[1],uipwd:keys[2],uiname:keys[3],uiemail:keys[4],uibirth:keys[5],uiaddress:keys[6],uihobby:keys[7],uidesc:keys[8],uitel:keys[9]}),
 						success:function(res){
 							res=JSON.parse(res);
+							console.log(res);
 							alert(res.msg);
 							location.href="/viewz/uri/watermelon/list";
 						}
