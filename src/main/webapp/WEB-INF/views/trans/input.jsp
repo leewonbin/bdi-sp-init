@@ -8,14 +8,17 @@
 </head>
 <body>
 <form>
-	언어1 : <select id="source">
+	언어1 : <select onchange="mf()" id="source">
 			<option value="ko">한국어</option>	
 			<option value="en">영어</option>
+			<option value="ja">일본어</option>
+			<option value="zh-CN">중국어</option>
 		  </select>
 		  
 	언어2 : <select id="target">
-			<option value="ko">한국어</option>	
 			<option value="en">영어</option>
+			<option value="ja">일본어</option>
+			<option value="zh-CN">중국어</option>
 		  </select>
 	
 	번역내용 : <textarea id="text"></textarea> 
@@ -23,6 +26,25 @@
 	번역된 메시지 : <textarea id="textresult"></textarea> 
 </form>
 <script>
+	function mf() {
+		var source = document.querySelector('#source').value;
+		var target = document.querySelector('#target');
+		if(source=='ko') {
+			target.innerHTML='<option value="en">영어</option>';
+			target.innerHTML+='<option value="ja">일본어</option>';
+			target.innerHTML+='<option value="zh-CN">중국어</option>';
+		}
+		if(source=='en') {
+			target.innerHTML='<option value="ko">한국어</option>';
+		}
+		if(source=='ja') {
+			target.innerHTML='<option value="ko">한국어</option>';
+		}
+		if(source=='zh-CN') {
+			target.innerHTML='<option value="ko">한국어</option>';
+		}
+	}
+
 	function trans() {
 		var source = document.querySelector('#source').value;
 		var target = document.querySelector('#target').value;
