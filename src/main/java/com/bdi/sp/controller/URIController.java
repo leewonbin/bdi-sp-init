@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class URIController {
 	private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 	
-	@RequestMapping(value="/uri/watermelon/login",method=RequestMethod.GET)
+	@RequestMapping(value="/uri/**",method=RequestMethod.GET)
 	public String goPage(HttpServletRequest req) {
 		String rootPath = req.getContextPath();
 		String uri = req.getRequestURI();
@@ -36,6 +36,4 @@ public class URIController {
 		}
 		return req.getRequestURI().replace(rootPath+"/viewz/uri/watermelon/list","/watermelon/login");
 	}
-	
-
 }   
