@@ -24,17 +24,19 @@
 </body>
 <script>
 	function btn1() {
-		alert("비밀번호를 잊어버리셨네요 ㅋ");
+		alert("비밀번호를 잊어버리셨나요? 찾으러 갑시다.");
+		location.href="/uri/my/pwdfind";
 	}
 	function btn2() {
-		alert("회원이 아니시네요. 회원가입 하세요.");
+		alert("회원이 아니시네요. 회원가입 합시다.");
+		location.href="/uri/my/signup";
 	}
 	 function onKeyDown2() {
 		var id = document.getElementById('id').value;
 		var pwd = document.getElementById('pwd').value;
 		alert(id + ", " + pwd);
 		alert(id + " 환영합니다.");
-		location.href="/uri/watermelon/mycss"; 
+		location.href="/uri/my/list"; 
 	}
 	
 	window.addEventListener("keydown", onKeyDown);
@@ -45,6 +47,7 @@
 			var pwd = document.getElementById('pwd').value;
 			alert(id + ", " + pwd);
 			alert(id + " 환영합니다.");
+			location.href="/uri/my/list"; 
 			document.getElementById("divlogin").click();
 			document.getElementById("divlogin").focus();
 		}

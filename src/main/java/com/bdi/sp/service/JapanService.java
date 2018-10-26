@@ -11,6 +11,5 @@ public interface JapanService {
 	public int insertJapan(Japan j);
 	public int deleteJapan(int j);	
 	public int updateJapan(Japan j);
-
 	
 }

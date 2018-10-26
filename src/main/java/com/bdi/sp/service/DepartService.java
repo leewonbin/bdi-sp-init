@@ -6,5 +6,5 @@ import com.bdi.sp.vo.Depart;
 
 public interface DepartService {
 	public List<Depart> getDepList(Depart d);
-
+	public int saveInsertUpdateDepart(Depart d);
 }
