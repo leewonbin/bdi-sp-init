@@ -18,7 +18,7 @@ ${ssuser.uiname}님. 환영합니다.
 	<script>
 	//---------------------------------------------------
 	var dxLayDiv, myForm, formData;
-	
+	var sta1 = new Date()
 	//-----------------------------------------------------
 		function doInit() {
 			
@@ -39,6 +39,8 @@ ${ssuser.uiname}님. 환영합니다.
 				dxGrid.parse(res,'js');
 			}})
 			dxLayDiv.cells('a').attachObject('dxGrid');
+			var sta2= new Date();
+			console.log(sta2.getTime()-sta1.getTime());
 			};
 
 		window.addEventListener('load',doInit);
@@ -205,7 +207,7 @@ ${ssuser.uiname}님. 환영합니다.
 			
 			
 			
-		},1000);
+		},100);
 		function logOut(){
 			var conf = {
 					url:'/logout/',

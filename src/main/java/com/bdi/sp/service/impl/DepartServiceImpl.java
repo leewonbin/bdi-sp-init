@@ -11,12 +11,20 @@ import com.bdi.sp.vo.Depart;
 
 @Service
 public class DepartServiceImpl implements DepartService {
+	
 	@Autowired
 	private DepartDAO ddao;
+	
 	@Override
 	public List<Depart> getDepList(Depart d) {
-		// TODO Auto-generated method stub
 		return ddao.getDepList(null);
+	}
+	
+	@Override
+	public int saveInsertUpdateDepart(Depart d) {
+		int cnt = ddao.insertDepart(d);
+		cnt += ddao.updateDepart(d);
+		return cnt;
 	}
 
 }
