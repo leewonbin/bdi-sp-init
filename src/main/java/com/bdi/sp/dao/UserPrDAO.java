@@ -13,4 +13,5 @@ public interface UserPrDAO {
 	public int deleteUserPr(int uinum);
 	public UserPr checkUser(UserPr ui);
 	public int dupCheckId(UserPr ui);
+	public int deleteUserPrAll(int[] nums);
 }

@@ -6,10 +6,10 @@
 		<select id="selectDepList" resultType="com.bdi.sp.vo.Depart">
 			select * from depart_info
 			<where>
-				<if test="diNo!=null"> and diNo=#{diNo}</if>
-				<if test="diName!=null"> and diName=#{diName}</if>
-				<if test="diDesc!=null"> and diDesc=#{diDesc}</if>
-				<if test="diCnt!=null"> and diCnt=#{diCnt}</if>
+				<if test="diNo!=null"> and diNo=#{dino}</if>
+				<if test="diName!=null"> and diName=#{diname}</if>
+				<if test="diDesc!=null"> and diDesc=#{didesc}</if>
+				<if test="diCnt!=null"> and diCnt=#{dicnt}</if>
 			</where>
 		</select>
 	</mapper>

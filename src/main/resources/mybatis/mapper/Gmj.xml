@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.bdi.sp.vo.GmjArchitectInfo">
+		<select id="selectList" resultType="com.bdi.sp.vo.GmjArchitectInfo">
+			select * from gmjarchitectInfo
+			where gmjarchitectKname=#{gmjarchitectname} or gmjarchitectjname=#{gmjarchitectname} or gmjarchitectename=#{gmjarchitectname}
+	
+		</select>
+		<select id="checkAddress" resultType="com.bdi.sp.vo.GmjArchitectInfo">
+			select * from gmjarchitectinfo where concat(gmjarchitectBaddress1,' ',gmjarchitectBaddress2,' ',gmjarchitectBaddress3) like concat('%',#{gmjArchitectBAddress},'%');
+	
+		</select>
+	</mapper>
+	

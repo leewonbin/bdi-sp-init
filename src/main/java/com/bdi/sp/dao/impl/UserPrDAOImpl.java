@@ -71,4 +71,10 @@ public class UserPrDAOImpl implements UserPrDAO {
 		
 	}
 
+	@Override
+	public int deleteUserPrAll(int[] nums) {
+		
+		return ss.delete("com.bdi.sp.vo.UserPrMapper.deleteUserPrAll", nums);
+	}
+
 }

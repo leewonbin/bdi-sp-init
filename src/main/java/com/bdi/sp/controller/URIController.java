@@ -13,29 +13,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class URIController {
 	private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 	
-	@RequestMapping(value="/uri/watermelon/login",method=RequestMethod.GET)
+	@RequestMapping(value="/uri/**",method=RequestMethod.GET)
 	public String goPage(HttpServletRequest req) {
+		HttpSession hs =req.getSession();
 		String rootPath = req.getContextPath();
 		String uri = req.getRequestURI();
-		
-		logger.debug("name=>{}", rootPath);
-		return req.getRequestURI().replace(rootPath+"/uri","");
-	}
-	@RequestMapping(value="/viewz/uri/**",method=RequestMethod.GET)
-	public String goPage2(HttpServletRequest req) {
-		String rootPath = req.getContextPath();
-		HttpSession hs =req.getSession();
-		System.out.println(hs.getAttribute("token"));
-		logger.debug("name=>{}", rootPath);
-		if(hs.getAttribute("token")==null||hs.getAttribute("token").equals("0")) {
-			System.out.println("주소"+req.getRequestURI().replace(rootPath+"/viewz/uri/watermelon/list","/uri/watermelon/login"));
-		return req.getRequestURI().replace(rootPath+"/viewz/uri/watermelon/list","/watermelon/login");
-			
-		}else if(hs.getAttribute("token").equals("1")) {
-			return req.getRequestURI().replace(rootPath+"/viewz/uri","");
+		//if(!req.getRequestURI().equals("/uri/watermelon/login")) {
+		/*	logger.debug("name=>{}", 22);
+			if(hs.getAttribute("token")==null||hs.getAttribute("ssuser")==null||hs.getAttribute("token").equals(0)) {
+				logger.debug("name=>{}", 24);
+				return req.getRequestURI().replace(req.getRequestURI(),"/watermelon/login");
+			}else {
+				logger.debug("name=>{}", 27);
+				return req.getRequestURI().replace(rootPath+"/uri","");
+			}
 		}
-		return req.getRequestURI().replace(rootPath+"/viewz/uri/watermelon/list","/watermelon/login");
+		logger.debug("name=>{}", rootPath);*/
+		return req.getRequestURI().replace(rootPath+"/uri","");
+		
+		
 	}
+	
 	
 
 }   

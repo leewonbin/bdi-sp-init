@@ -16,7 +16,7 @@ public class DepartDAOImpl implements DepartDAO {
 	
 	@Override
 	public List<Depart> getDepList(Depart d) {
-		// TODO Auto-generated method stub
+		
 		return ss.selectList("com.bdi.sp.vo.DepMapper.selectDepList", d);
 	}
 

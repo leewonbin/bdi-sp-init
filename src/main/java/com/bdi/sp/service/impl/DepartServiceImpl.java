@@ -15,7 +15,7 @@ public class DepartServiceImpl implements DepartService {
 	private DepartDAO ddao;
 	@Override
 	public List<Depart> getDepList(Depart d) {
-		// TODO Auto-generated method stub
+		
 		return ddao.getDepList(null);
 	}
 

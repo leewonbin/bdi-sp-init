@@ -2,38 +2,35 @@ package com.bdi.sp.vo;
 
 public class Depart {
 	
-	private Integer diNo;
-	private String diName;
-	private String diDesc;
-	private Integer diCnt;
-	public Integer getDiNo() {
-		return diNo;
+	private Integer dino;
+	private String diname;
+	private String didesc;
+	private Integer dicnt;
+	public Integer getDino() {
+		return dino;
 	}
-	public void setDiNo(Integer diNo) {
-		this.diNo = diNo;
+	public void setDino(Integer dino) {
+		this.dino = dino;
 	}
-	public String getDiName() {
-		return diName;
+	public String getDiname() {
+		return diname;
 	}
-	public void setDiName(String diName) {
-		this.diName = diName;
+	public void setDiname(String diname) {
+		this.diname = diname;
 	}
-	public String getDiDesc() {
-		return diDesc;
+	public String getDidesc() {
+		return didesc;
 	}
-	public void setDiDesc(String diDesc) {
-		this.diDesc = diDesc;
+	public void setDidesc(String didesc) {
+		this.didesc = didesc;
 	}
-	public Integer getDiCnt() {
-		return diCnt;
+	public Integer getDicnt() {
+		return dicnt;
 	}
-	public void setDiCnt(Integer diCnt) {
-		this.diCnt = diCnt;
+	public void setDicnt(Integer dicnt) {
+		this.dicnt = dicnt;
 	}
-	@Override
-	public String toString() {
-		return "Depart [diNo=" + diNo + ", diName=" + diName + ", diDesc=" + diDesc + ", diCnt=" + diCnt + "]";
-	}
+	
 	
 
 }

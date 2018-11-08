@@ -17,4 +17,5 @@ public interface UserPrService {
 	public Map<String,String> checkLogin(UserPr ui,HttpServletRequest req);
 	public Map<String,String> checkLogout(UserPr ui,HttpServletRequest req);
 	public Map<String,String> dupCheck(UserPr ui);
+	public Map<String,String> deleteUserPrAll(int[] nums);
 }

@@ -46,10 +46,18 @@ public class UserPrController {
 	public @ResponseBody  Map<String,String> updateUserPr(@RequestBody UserPr ui, @PathVariable Integer uinum) {
 		return uis.updateUserPr(ui);  
 	}
+	@RequestMapping(value="/userpr", method=RequestMethod.PUT)
+	public @ResponseBody  Map<String,String> updateUserPr2(@RequestBody UserPr ui) {
+		return uis.updateUserPr(ui);  
+	}
 	
 	@RequestMapping(value="/userpr/{uinum}", method=RequestMethod.DELETE)
 	public @ResponseBody  Map<String,String> deleteUserPr(@PathVariable Integer uinum) {
 		return uis.deleteUserPr(uinum); 
+	}
+	@RequestMapping(value="/userprs/", method=RequestMethod.DELETE)
+	public @ResponseBody  Map<String,String> deleteUserPrAll(@RequestBody int[] uinumCheckSet) {
+		return uis.deleteUserPrAll(uinumCheckSet); 
 	}
 	
 	@Autowired

@@ -114,5 +114,18 @@ public class UserPrServiceImpl implements UserPrService {
 		hs.setAttribute("ssuser", null);
 		return rMap;
 	}
+
+	@Override
+	public Map<String, String> deleteUserPrAll(int[] nums) {
+		Map<String,String> rMap = new HashMap<String,String>();
+		rMap.put("msg", "전체삭제가 실행 되지 않았습니다. 다시 확인바랍니다.");
+		rMap.put("success", "fail");
+		
+		if(uidao.deleteUserPrAll(nums)==nums.length){//return 값이 숫자: 1이면 성공 0이면  실패.
+			rMap.put("msg", "삭제가  완료되었습니다.");
+			rMap.put("success", "success");
+		}
+		return rMap;
+	}
 	
 }

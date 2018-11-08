@@ -143,7 +143,7 @@ function doInit(){
 								res=JSON.parse(res);
 								alert(res.msg);
 								if(res.success=="success"){
-								location.href="/viewz/uri/watermelon/list";
+								location.href="/uri/watermelon/list";
 								};
 								
 							}

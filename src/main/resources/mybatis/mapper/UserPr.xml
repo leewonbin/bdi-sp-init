@@ -56,5 +56,13 @@
 		select * from user_pr where uiid=#{uiid} and uipwd=#{uipwd}
 	</select>
 	
+	<delete id="deleteUserPrAll">
+		 delete from user_pr
+		 <where>
+		 <foreach collection="array" item="array" open="" close="" separator=" "> or uinum=#{array}</foreach>
+		 </where>
+		 
+	</delete>
+	
 	
 </mapper>
