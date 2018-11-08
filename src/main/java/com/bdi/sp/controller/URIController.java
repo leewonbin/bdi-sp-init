@@ -11,12 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class URIController {
+
 	private static final Logger logger = LoggerFactory.getLogger(TestController.class);
 	
+
 	@RequestMapping(value="/uri/**",method=RequestMethod.GET)
 	public String goPage(HttpServletRequest req) {
-		HttpSession hs =req.getSession();
-		String rootPath = req.getContextPath();
+		String rootPath = req.getContextPath(); 
+
 		String uri = req.getRequestURI();
 		//if(!req.getRequestURI().equals("/uri/watermelon/login")) {
 		/*	logger.debug("name=>{}", 22);
@@ -33,7 +35,6 @@ public class URIController {
 		
 		
 	}
-	
-	
+
 
 }   

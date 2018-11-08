@@ -12,4 +12,19 @@
 				<if test="diCnt!=null"> and diCnt=#{dicnt}</if>
 			</where>
 		</select>
+		
+		<insert id="insertDep">
+			insert into depart_info(diNo,diName,diDesc,diCnt)
+			values(#{diNo},#{diName},#{diDesc},#{diCnt})
+		</insert>
+		
+		<update id="updateDep">
+			update depart_info
+			<set>
+				<if test="diName!=null">diName=#{diName},</if>
+				<if test="diDesc!=null">diDesc=#{diDesc},</if>
+				<if test="diCnt!=null">diCnt=#{diCnt},</if>
+			</set>
+			where diNo=#{diNo}
+		</update>
 	</mapper>

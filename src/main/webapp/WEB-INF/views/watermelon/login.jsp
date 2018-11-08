@@ -135,16 +135,24 @@ function doInit(){
 					var pwd = signinForm.getItemValue('pwd');
 					
 					var conf = {
-							url:'/login',
+							// url:'http://192.168.0.25:3000/user/login',
+							url : '/login',
 							method:'POST',
-							param : JSON.stringify({uiid:id,uipwd:pwd}),
+							param : JSON.stringify({uiid:id,uipwd:pwd}),	// 대소문자 가림
 
 							success : function(res){
 								res=JSON.parse(res);
 								alert(res.msg);
 								if(res.success=="success"){
+<<<<<<< HEAD
 								location.href="/uri/watermelon/list";
+=======
+									location.href="/viewz/uri/watermelon/list";
+>>>>>>> branch 'master' of https://github.com/leewonbin/bdi-sp-init.git
 								};
+								/* if(res.msg=="강민혁"){
+									location.href="/uri/zok/as";
+								}; */
 								
 							}
 					}

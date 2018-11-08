@@ -18,6 +18,7 @@
 	<script>
 	//---------------------------------------------------
 	var dxLayDiv, myForm, formData;
+<<<<<<< HEAD
 	var conf;
 	var uinum,cnt,keys;
 	var uinumSet=new Array();
@@ -28,6 +29,9 @@
 	var pattern = /\s/g;
 	var hanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
 	var emailPattern=/^([a-z0-9]+)@([\da-z]+)\.([a-z\.]{2,6})$/;
+=======
+	var sta1 = new Date()
+>>>>>>> branch 'master' of https://github.com/leewonbin/bdi-sp-init.git
 	//-----------------------------------------------------
 		function doInit() {
 			sta1 = new Date();
@@ -59,6 +63,7 @@
 			}})
 	
 			dxLayDiv.cells('a').attachObject('dxGrid');
+<<<<<<< HEAD
 			dxLayDiv.cells('c').attachObject('dxGrid2');
 			//중간에 버튼 붙이기 
 			 html='';
@@ -70,6 +75,10 @@
 		
 			
 			
+=======
+			var sta2= new Date();
+			console.log(sta2.getTime()-sta1.getTime());
+>>>>>>> branch 'master' of https://github.com/leewonbin/bdi-sp-init.git
 			};
 
 		window.addEventListener('load',doInit);
@@ -221,10 +230,81 @@
 					}
 				});
 			}
+<<<<<<< HEAD
 			var sta3 = new Date();
 			console.log(sta3.getTime()-sta1.getTime());
 		},30);
 ///////////////////////////// 이하 맨 상위 //////////////		
+=======
+		
+			function findFactor2(target){
+				var keys= new Array();
+				for(var i=0;i<10;i++){ //i<3의 3은 이미지 앞에 있는 항목 개수.
+			//	console.log(target.path[2].childNodes[i].innerHTML);//target:누르는 그림, path[2]:target을 기준으로 tr전체영역,
+				
+				keys[i]=target.path[2].childNodes[i].innerHTML;
+				
+				}
+			
+				
+				var uinum = keys[0];
+				deleterow(uinum);
+				function deleterow(uinum){
+					var conf={
+							url:'/userpr/'+uinum+'',
+							method:'DELETE',
+							param :JSON.stringify({uinum:uinum}),
+							success:function(res){
+								res=JSON.parse(res);
+								
+								alert(res.msg);
+								location.href="/viewz/uri/watermelon/list";}
+						}
+						if(confirm('이 데이터를 삭제하시겠습니까?')){
+							au.send(conf);	
+						};
+						}
+				}
+			
+			
+			
+			function checkvalue(keys){
+				var pattern = /\s/g;
+				var hanglePattern=/[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+				for(var i=1;i<keys.length;i++){
+					
+				if(keys[i].match(pattern)||keys[i].length<2){
+					if(i!=5||i!=1){
+					alert(keys[i]+'가 공백패턴또는 2글자 미만입니다.');
+					return;
+					}
+				}}
+				if(keys[3].match(hanglePattern)){
+					alert('이름은 한글로 써야합니다.');
+					return;
+				}
+				sendingToServer(keys);
+			}
+			
+			function sendingToServer(keys){
+				var conf={
+						url:'/userpr/'+keys[0]+'',
+						method:'PUT',
+						param :JSON.stringify({uinum:keys[0],uiid:keys[1],uipwd:keys[2],uiname:keys[3],uiemail:keys[4],uibirth:keys[5],uiaddress:keys[6],uihobby:keys[7],uidesc:keys[8],uitel:keys[9]}),
+						success:function(res){
+							res=JSON.parse(res);
+							console.log(res);
+							alert(res.msg);
+							location.href="/viewz/uri/watermelon/list";
+						}
+					}
+					au.send(conf);
+			}
+			
+			
+			
+		},100);
+>>>>>>> branch 'master' of https://github.com/leewonbin/bdi-sp-init.git
 		function logOut(){
 			conf = {
 					url:'/logout/',

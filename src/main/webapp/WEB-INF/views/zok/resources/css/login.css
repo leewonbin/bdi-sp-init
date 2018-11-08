@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+img {
+	margin: 20% 15% 2% 15%;
+	opacity: 0.8;
+	width: 70%;
+	height: 41%;
+}
+
+body {
+	background-image: linear-gradient(45deg, #29204A, #A95951);
+	background-repeat: no-repeat;
+	margin-bottom: 0;
+}
+
+.container {
+	margin: 100px auto;
+	background-image: linear-gradient(45deg, #A95951, #CE5B5C);
+	border-radius: 5px;
+	height: 640px;
+	width: 1280px;
+}
+
+#section1 {
+	float: left;
+	background-image: linear-gradient(45deg, #251637, #6D324B);
+	width: 50%;
+	height: 100%;
+	border-radius: 5px 0px 0px 5px;
+	opacity: 0.9;
+}
+
+#section2 {
+	width: 50%;
+	height: 100%;
+	float: left;
+	background-image: linear-gradient(45deg, #834153, #CE5B5C);
+	border-radius: 0px 5px 5px 0px;
+}
+
+div#blockLog {
+	padding: 20%;
+}
+
+div#blockLog input {
+	background-color: transparent;
+	font-size: 20px;
+	color: white;
+	padding: 3% 0%;
+	margin: 5% 0%;
+	border: transparent;
+	border-bottom: solid 2px;
+	width: 100%;
+	letter-spacing: 3px;
+	outline: none;
+}
+
+div#blockLog button {
+	background-color: transparent;
+	font-family: 'Sigmar One';
+	color: white;
+	font-size: 20px;
+	border: 1px solid;
+	width: 45%;
+	padding: 3% 0%;
+	margin: 10% 0%;
+	letter-spacing: 3px;
+}
+
+div#blockLog button#signInBtnchanged {
+	margin-right: 10%;
+}
+
+div#blockLog button#signInBtnchanged:hover {
+	opacity: 0.5;
+	margin-right: 10%;
+}
+
+div#blockLog button#signUpBtn:hover {
+	opacity: 0.5;
+}
+
+div#blockLog button#signInBtn {
+	margin-right: 10%;
+}
+
+.atag {
+	margin: 10%;
+	text-align: center;
+}
+
+::placeholder {
+	color: white;
+	opacity: 0.5;
+}
+
+.atag a {
+	font-size: 20px;
+	letter-spacing: 3px;
+	color: white;
+	text-decoration: none;
+}
+
+div.atag:hover {
+	opacity: 0.4;
+}
+
+div#hided {
+	position: absolute;
+	top: 100px;
+	background: white;
+	width: 80%;
+	height: 60vh;
+	z-index: 1;
+	margin: 0% 10%;
+	background-color: #800000;
+	border-radius: 40px;
+	text-align: center;
+}
+
+div#spaces #firstname {
+	margin-right: 2%;
+}
+
+div#hided input {
+	background-color: green;
+	padding: 3% 0%;
+	font-size: 20px;
+	margin-bottom: 5%;
+}
+
+div#hided h1 {
+	display: inline;
+	color: white;
+}
+
+#closeBtn {
+	position: absolute;
+	right: 20px;
+	font-size: 30px;
+}
+
+div#spaces {
+	margin-top: 5%;
+}
+
+#firstname, #lastname {
+	width: 35%;
+}
+
+#email, #pwd {
+	width: 72%;
+}
+
+.pagefooter {
+	background: white;
+	margin-top: 5%;
+	height: 100px;
+}
